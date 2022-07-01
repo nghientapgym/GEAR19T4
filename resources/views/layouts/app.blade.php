@@ -25,8 +25,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="row w-100">
                     <div class="col-md-6">
-                        <form class="d-flex my-2 my-lg-0">
-                            <input class="form-control" type="search" placeholder="Tìm kiếm" aria-label="Search" />
+                        <form class="d-flex my-2 my-lg-0" action="{{route('search')}}">
+                            @csrf
+                            <input class="form-control" name="search" type="search" placeholder="Tìm kiếm" aria-label="Search" />
                             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -53,7 +54,7 @@
                                         <i class="fas fa-user-circle me-2"></i> {{Auth::user()->name}}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="../pages/thong-tin-can-hang">
+                                        <a class="dropdown-item" href="{{route('admin.index')}}">
                                             <i class="fas fa-user-circle me-2"></i> Thông tin cửa hàng
                                         </a>
                                         <!--Đăng xuất-->

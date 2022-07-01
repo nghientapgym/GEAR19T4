@@ -27,6 +27,7 @@ Route::prefix('/')->group(function(){
     Route::get('/huong-dan-thanh-toan',function (){
         return view('home.huong-dan-thanh-toan');
     })->name('huong-dan-thanh-toan');
+    Route::get('tim-kiem', ["App\\Http\\Controllers\\SearchController" , "search"])->name('search');
 });
 Route::prefix('/user')->group(function(){
     Route::get('/logout', ["App\\Http\\Controllers\\User\\UserController", "logOut"])->name('user.logout');
@@ -40,3 +41,7 @@ Route::prefix('/cart')->group(function() {
     Route::post('/remove', ["App\\Http\\Controllers\\Cart\\CartController", "remove"])->name('cart.remove');
     Route::post('/update', ["App\\Http\\Controllers\\Cart\\CartController", "update"])->name('cart.update');
 });
+Route::prefix('/admin')->group(function() {
+    Route::get('/', ["App\\Http\\Controllers\\Admin\\AdminController", "index"])->name('admin.index');
+});
+

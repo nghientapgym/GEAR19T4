@@ -172,7 +172,6 @@
                 autoplay: true,
                 singleItem: true,
                 items: 1,
-                navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                 autoHeight: true,
                 autoplayTimeout: 1500,
 
