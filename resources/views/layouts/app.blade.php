@@ -123,6 +123,36 @@
 <main class="mb-4">
     @yield('content')
     @stack('scripts')
+    <!-- if error -->
+    @if(session()->has('error'))
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{!! session()->get('error')->first() !!}',
+            })
+        </script>
+    @endif
+    <!-- if success -->
+    @if(session()->has('success'))
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công',
+                text: '{!! session()->get('success')->first()!!}',
+            })
+        </script>
+    @endif
+    @if(Session::has('errors'))
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{Session::get('errors')->first()}}',
+            })
+        </script>
+    @endif
+
 </main>
 <footer class="mt-auto bg-red text-white p-3">
     <div class="container">
