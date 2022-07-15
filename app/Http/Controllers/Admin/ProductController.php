@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -26,4 +27,21 @@ class ProductController extends Controller
     {
         return view('admin.product.index');
     }
+    // store
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:products',
+            'category_id' => 'required|integer',
+            'description' => 'required|string|max:255',
+            'image' => 'required|string|max:255',
+            'price' => 'required|numeric',
+        ]);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->slug = $request->slug;
+
+    }
+
 }
