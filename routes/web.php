@@ -43,5 +43,6 @@ Route::prefix('/cart')->group(function() {
 });
 Route::prefix('/admin')->group(function() {
     Route::get('/', ["App\\Http\\Controllers\\Admin\\AdminController", "index"])->name('admin.index');
+    Route::get('/product', ["App\\Http\\Controllers\\Admin\\ProductController", "index"])->name('admin.product.index');
 });
 

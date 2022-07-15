@@ -25,7 +25,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.index');
+        $products = Product::all();
+
+        return view('admin.product.index', compact('products'));
     }
     // store
     public function store(Request $request)
@@ -43,5 +45,6 @@ class ProductController extends Controller
         $product->slug = $request->slug;
 
     }
+
 
 }

@@ -36,9 +36,41 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-9">
+                @yield('content')
+            </div>
 
         </div>
     </div>
+    @stack('scripts')
+    @if(session()->has('error'))
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{!! session()->get('error')->first() !!}',
+            })
+        </script>
+    @endif
+    <!-- if success -->
+    @if(session()->has('success'))
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công',
+                text: '{!! session()->get('success')->first()!!}',
+            })
+        </script>
+    @endif
+    @if(Session::has('errors'))
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{Session::get('errors')->first()}}',
+            })
+        </script>
+    @endif
 </main>
 <!-- Core theme JS-->
 <script src="{{ asset('js/app.js') }}"></script>
