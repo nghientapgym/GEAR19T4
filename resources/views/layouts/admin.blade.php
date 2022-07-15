@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-body bg-primary">
                             <ul class="list-group">
-                                <a href="{{route('admin.index')}}" class="list-group-item list-group-item-action">
+                                <a href="{{route('admin.product.index')}}" class="list-group-item list-group-item-action">
                                     Danh mục
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action">
@@ -42,13 +42,14 @@
 
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
     @if(session()->has('error'))
         <script type="text/javascript">
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: '{!! session()->get('error')->first() !!}',
+                text: '{!! session()->get('error')!!}',
             })
         </script>
     @endif
@@ -58,7 +59,7 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Thành công',
-                text: '{!! session()->get('success')->first()!!}',
+                text: '{!! session()->get('success')!!}',
             })
         </script>
     @endif
@@ -73,6 +74,6 @@
     @endif
 </main>
 <!-- Core theme JS-->
-<script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

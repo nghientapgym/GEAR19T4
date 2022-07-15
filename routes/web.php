@@ -44,5 +44,14 @@ Route::prefix('/cart')->group(function() {
 Route::prefix('/admin')->group(function() {
     Route::get('/', ["App\\Http\\Controllers\\Admin\\AdminController", "index"])->name('admin.index');
     Route::get('/product', ["App\\Http\\Controllers\\Admin\\ProductController", "index"])->name('admin.product.index');
+    // product show slug
+    Route::get('/product/{slug}', ["App\\Http\\Controllers\\Admin\\ProductController", "show"])->name('admin.product.show');
+    // update product
+    Route::post('/product/{slug}/update', ["App\\Http\\Controllers\\Admin\\ProductController", "update"])->name('admin.product.update');
+    // store product
+    Route::post('/product/store', ["App\\Http\\Controllers\\Admin\\ProductController", "store"])->name('admin.product.store');
+    // destroy product
+    Route::post('/product/{slug}/destroy', ["App\\Http\\Controllers\\Admin\\ProductController", "destroy"])->name('admin.product.destroy');
+
 });
 
