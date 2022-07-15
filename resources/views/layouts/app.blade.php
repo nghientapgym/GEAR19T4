@@ -55,7 +55,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{route('admin.index')}}">
-                                            <i class="fas fa-user-circle me-2"></i> Thông tin cửa hàng
+                                            <i class="fas fa-user-circle me-2"></i> Admin
                                         </a>
                                         <!--Đăng xuất-->
                                         <a class="dropdown-item" href="{{route('user.logout')}}">
