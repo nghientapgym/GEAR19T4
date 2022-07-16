@@ -25,8 +25,6 @@ class ProductFactory extends Factory
             'category_id' => "1",
             // laptop description
             'description' => $this->faker->text,
-
-
         ];
     }
 }
